@@ -21,10 +21,10 @@ class ArrayList
     {
         array_push($this->arrayList, $obj);
     }
-    public function clear()
-    {
-        $this->arrayList = array();
-    }
+//    public function clear()
+//    {
+//        $this->arrayList = array();
+//    }
 
     public function get($index)
     {
@@ -34,36 +34,24 @@ class ArrayList
             die("ERROR in ArrayList.get");
         }
     }
-    public function isEmpty()
-    {
-        if (count($this->arrayList) ==0){
-            return true;
-        }
-        return false;
-    }
+
     public function remove($index)
     {
-        if ($this->isInteger($index)){
+        if ($this->isInteger($index)) {
             $newArrayList = array();
-            for ($i=0;$i< $this->size();$i++)
+            for ($i = 0; $i < $this->size(); $i++)
                 if ($index != $i) $newArrayList[] = $this->get($i);
-                $this->arrayList = $newArrayList;
+            $this->arrayList = $newArrayList;
         } else {
             die("ERROR in ArrayList.remove <br> Integer value required");
         }
     }
+
     public function size()
     {
         return count($this->arrayList);
     }
-    public function sort()
-    {
-        sort($this->arrayList);
-    }
-    public function toArray()
-    {
-        return $this->arrayList;
-    }
+
 
     public function isInteger($toCheck)
     {
